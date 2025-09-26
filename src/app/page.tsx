@@ -459,10 +459,10 @@ export default async function Home() {
             <p className="mt-2 text-sm text-slate-500">Global narratives decoded for modern newsrooms.</p>
           </div>
           <div className="flex gap-6 text-sm text-slate-500">
-            <Link className="hover:text-slate-100" href="#">
+            <Link className="hover:text-slate-100" href="/privacy">
               Privacy
             </Link>
-            <Link className="hover:text-slate-100" href="#">
+            <Link className="hover:text-slate-100" href="/terms">
               Terms
             </Link>
             <Link className="hover:text-slate-100" href="mailto:briefings@worldsignal.news">
