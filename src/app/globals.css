@@ -1,0 +1,43 @@
+﻿@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --background: #05060b;
+  --foreground: #e5e7eb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(59, 130, 246, 0.18) 0, transparent 52%),
+    radial-gradient(circle at 82% 12%, rgba(236, 72, 153, 0.15) 0, transparent 45%),
+    linear-gradient(160deg, #02030a 0%, #0f172a 60%, #02030a 100%);
+  color: var(--foreground);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(transparent 0, rgba(15, 23, 42, 0.18) 50%, transparent 100%),
+    linear-gradient(90deg, transparent 0, rgba(15, 23, 42, 0.18) 50%, transparent 100%);
+  background-size: 100% 200px, 200px 100%;
+  mix-blend-mode: screen;
+  opacity: 0.3;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.4);
+  color: #0f172a;
+}
