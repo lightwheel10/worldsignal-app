@@ -1,5 +1,6 @@
-﻿/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import { SubscribeModal } from "@/components/subscribe-modal";
 import { getGdeltHeadlines } from "@/lib/gdelt";
 
 const heroStats = [
@@ -141,12 +142,7 @@ export default async function Home() {
             <Link className="text-slate-400 hover:text-slate-100" href="/login">
               Sign in
             </Link>
-            <Link
-              href="/signup"
-              className="rounded-full border border-slate-700 px-4 py-2 font-medium text-slate-100 transition hover:border-slate-500"
-            >
-              Subscribe
-            </Link>
+            <SubscribeModal />
           </div>
         </div>
       </header>
