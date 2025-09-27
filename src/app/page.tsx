@@ -138,7 +138,7 @@ export default async function Home() {
               Photo desk
             </Link>
           </nav>
-          <div className="hidden items-center gap-3 text-sm md:flex">
+          <div className="flex items-center gap-3 text-sm">
             <Link className="text-slate-400 hover:text-slate-100" href="/login">
               Sign in
             </Link>
