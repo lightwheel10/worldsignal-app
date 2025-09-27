@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 import { AuthPage } from "@/components/auth-page";
 
@@ -8,20 +8,20 @@ const inputClass =
 export default function ForgotPasswordPage() {
   return (
     <AuthPage
-      title="Reset your newsroom credentials"
-      subtitle="We will email you a secure link to restore access so you can keep tracking bias and blindspots without interruption."
+      title="Forgot your password?"
+      subtitle="Enter the email linked to your workspace and we will send a reset link."
       footer={
         <div className="space-y-2 text-center">
           <p>
-            Remembered your password?{' '}
+            Remembered your password?{" "}
             <Link className="font-semibold text-[#f6c343] hover:text-[#ffd768]" href="/login">
               Return to login
             </Link>
           </p>
           <p>
-            Need to join the desk?{' '}
+            Need an account?{" "}
             <Link className="text-slate-300 underline-offset-4 hover:underline" href="/signup">
-              Request WorldSignal Pro
+              Request access
             </Link>
           </p>
         </div>
@@ -42,7 +42,7 @@ export default function ForgotPasswordPage() {
           />
         </div>
         <p className="text-xs text-slate-300">
-          Reset links expire in 30 minutes. If you no longer have access to your newsroom inbox, contact{' '}
+          Reset links expire in 30 minutes. If you no longer have inbox access, contact{" "}
           <Link className="text-[#f6c343] hover:text-[#ffd768]" href="mailto:support@worldsignal.news">
             support@worldsignal.news
           </Link>

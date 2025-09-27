@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 import { AuthPage } from "@/components/auth-page";
 
@@ -8,12 +8,12 @@ const inputClass =
 export default function LoginPage() {
   return (
     <AuthPage
-      title="Welcome back to your bias intelligence desk"
-      subtitle="Log in to stream real-time coverage comparisons, blindspot alerts, and analyst briefs tailored to your regions."
+      title="Sign in to WorldSignal"
+      subtitle="Access your briefings, bias monitors, and saved digests."
       footer={
         <div className="space-y-2 text-center">
           <p>
-            Need membership?{' '}
+            Need membership?{" "}
             <Link className="font-semibold text-[#f6c343] hover:text-[#ffd768]" href="/signup">
               Request WorldSignal Pro
             </Link>

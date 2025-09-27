@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 
 import { AuthPage } from "@/components/auth-page";
 
@@ -8,11 +8,11 @@ const inputClass =
 export default function ResetPasswordPage() {
   return (
     <AuthPage
-      title="Secure your WorldSignal account"
-      subtitle="Set a new password to resume streaming bias spectra, blindspot alerts, and analyst briefings."
+      title="Set a new password"
+      subtitle="Choose a strong password to secure your WorldSignal account."
       footer={
         <p className="text-center text-xs text-slate-300">
-          Need help? Contact{' '}
+          Need help? Contact{" "}
           <Link className="text-[#f6c343] hover:text-[#ffd768]" href="mailto:support@worldsignal.news">
             support@worldsignal.news
           </Link>
@@ -49,8 +49,8 @@ export default function ResetPasswordPage() {
         </div>
         <ul className="space-y-2 rounded-2xl border border-white/10 bg-white/5 p-4 text-xs text-slate-300">
           <li>- Minimum 10 characters with at least one capital letter.</li>
-          <li>- Include a number or symbol to satisfy newsroom security policies.</li>
-          <li>- Avoid passwords used on other intelligence or market systems.</li>
+          <li>- Include a number or symbol.</li>
+          <li>- Avoid passwords used elsewhere.</li>
         </ul>
         <button
           className="w-full rounded-2xl bg-[#f6c343] px-4 py-3 text-sm font-semibold text-slate-950 transition hover:bg-[#ffd768]"
@@ -58,9 +58,6 @@ export default function ResetPasswordPage() {
         >
           Save new password
         </button>
-        <p className="text-xs text-slate-300">
-          Continuing confirms you reviewed the latest WorldSignal security guidance and will protect embargoed briefings.
-        </p>
       </form>
     </AuthPage>
   );
