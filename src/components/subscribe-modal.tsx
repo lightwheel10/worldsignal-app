@@ -2,6 +2,7 @@
 
 import type { CSSProperties, FormEvent } from "react";
 import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 
 const deliveryFrequencies = [
   { label: "Daily", value: "daily" },
@@ -27,6 +28,11 @@ export function SubscribeModal() {
   const [frequency, setFrequency] = useState("daily");
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false);
   const [confettiPieces, setConfettiPieces] = useState<ConfettiPiece[]>([]);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const emailError = useMemo(() => {
     if (!hasAttemptedSubmit) return "";
@@ -93,10 +99,14 @@ export function SubscribeModal() {
         Subscribe
       </button>
 
-      {isOpen ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8">
-          <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
-          <div className="relative w-full max-w-md overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 p-8 shadow-[0_30px_120px_rgba(15,23,42,0.55)]">
+      {isMounted && isOpen
+        ? createPortal(
+            <div className="fixed inset-0 z-[1000] flex items-start justify-center overflow-y-auto px-4 py-6 sm:items-center sm:py-12">
+              <div
+                className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm"
+                onClick={() => setIsOpen(false)}
+              />
+              <div className="relative z-10 w-full max-w-md rounded-3xl border border-slate-800 bg-slate-900 shadow-[0_30px_120px_rgba(15,23,42,0.55)]">
             <button
               type="button"
               onClick={() => setIsOpen(false)}
@@ -107,7 +117,7 @@ export function SubscribeModal() {
             </button>
 
             {stage === "idle" ? (
-              <form className="space-y-6" onSubmit={onSubmit}>
+              <form className="max-h-[min(90vh,34rem)] space-y-6 overflow-y-auto p-6 sm:p-8" onSubmit={onSubmit}>
                 <div className="space-y-2">
                   <h2 className="text-xl font-semibold text-white">Stay ahead of the narrative</h2>
                   <p className="text-sm text-slate-400">
@@ -160,7 +170,7 @@ export function SubscribeModal() {
                 </button>
               </form>
             ) : (
-              <div className="relative space-y-5 text-center">
+              <div className="relative max-h-[min(90vh,34rem)] space-y-5 overflow-y-auto p-6 text-center sm:p-8">
                 <div className="relative mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-indigo-500/10">
                   <span className="text-3xl">🎉</span>
                 </div>
@@ -195,9 +205,11 @@ export function SubscribeModal() {
                 </div>
               </div>
             )}
-          </div>
-        </div>
-      ) : null}
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
     </>
   );
 }
